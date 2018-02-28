@@ -6,12 +6,14 @@ public class MeshCreation : MonoBehaviour {
 
 	private int moveHeight;
 	private int moveLength;
+	private int moveWidth;
 
 	void Start () {
 		gameObject.AddComponent<MeshFilter>();
 		gameObject.AddComponent<MeshRenderer>();	
 		moveHeight = 1;
 		moveLength = 1;
+		moveWidth = 0;
 	}
 
 	void Update () {
@@ -30,21 +32,28 @@ public class MeshCreation : MonoBehaviour {
 			moveLength -= 1;
 		}
 
+		if(Input.GetKeyDown(KeyCode.Z)){
+			moveWidth += 1;
+		}		
+		if(Input.GetKeyDown(KeyCode.X)){
+			moveWidth -= 1;
+		}
+
 		Mesh mesh = GetComponent<MeshFilter>().mesh;
 		mesh.Clear();
 
 		mesh.vertices = new Vector3[] { 
 			//back 
-			new Vector3(0, 0, 0),	//0
-			new Vector3(0, moveHeight, 0),	//1
-			new Vector3(moveLength, moveHeight, 0),	//2
-			new Vector3(moveLength, 0, 0),	//3
+			new Vector3(0, 0, moveWidth),	//0
+			new Vector3(0, moveHeight, moveWidth),	//1
+			new Vector3(moveLength, moveHeight, moveWidth),	//2
+			new Vector3(moveLength, 0, moveWidth),	//3
 
 			//top (counterclockwise)
 			new Vector3(moveLength, moveHeight, 1), 	//4
 			new Vector3(0, moveHeight, 1),	//5
-			new Vector3(0, moveHeight, 0),	//6
-			new Vector3(moveLength, moveHeight, 0),	//7
+			new Vector3(0, moveHeight, moveWidth),	//6
+			new Vector3(moveLength, moveHeight, moveWidth),	//7
 
 			//front (counterclockwise) 
 			new Vector3(0, 0, 1), 	//8
@@ -55,20 +64,20 @@ public class MeshCreation : MonoBehaviour {
 			//right 
 			new Vector3(0, 0, 1), 	//12
 			new Vector3(0, moveHeight, 1),	//13
-			new Vector3(0, moveHeight, 0),	//14
-			new Vector3(0, 0, 0),	//15
+			new Vector3(0, moveHeight, moveWidth),	//14
+			new Vector3(0, 0, moveWidth),	//15
 
 			//left
 			new Vector3(moveLength, 0, 1), 	//16
 			new Vector3(moveLength, moveHeight, 1),	//17
-			new Vector3(moveLength, moveHeight, 0),	//18
-			new Vector3(moveLength, 0, 0),	//19
+			new Vector3(moveLength, moveHeight, moveWidth),	//18
+			new Vector3(moveLength, 0, moveWidth),	//19
 
 			//bottom
 			new Vector3(moveLength, 0, 1), 	//20
 			new Vector3(0, 0, 1),	//21
-			new Vector3(0, 0, 0),	//22
-			new Vector3(moveLength, 0, 0)	//23
+			new Vector3(0, 0, moveWidth),	//22
+			new Vector3(moveLength, 0, moveWidth)	//23
 		};
 			
 		mesh.triangles = new int[] {
