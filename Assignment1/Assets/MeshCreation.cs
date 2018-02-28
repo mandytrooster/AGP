@@ -4,44 +4,57 @@ using UnityEngine;
 
 public class MeshCreation : MonoBehaviour {
 
-	// Use this for initialization
+	private int moveUp;
+	private int moveDown;
+
 	void Start () {
-        gameObject.AddComponent<MeshFilter>();
-        gameObject.AddComponent<MeshRenderer>();
+		gameObject.AddComponent<MeshFilter>();
+		gameObject.AddComponent<MeshRenderer>();	
+		moveUp = 1;
+	}
 
-        Mesh mesh = GetComponent<MeshFilter>().mesh;
+	void Update () {
 
-        mesh.Clear();
+		if(Input.GetKeyDown(KeyCode.W)){
+			moveUp += 1;
+		}		
+		if(Input.GetKeyDown(KeyCode.S)){
+			moveUp -= 1;
+		}
 
-        mesh.vertices = new Vector3[] { 
+
+		Mesh mesh = GetComponent<MeshFilter>().mesh;
+		mesh.Clear();
+
+		mesh.vertices = new Vector3[] { 
 			//back 
 			new Vector3(0, 0, 0),	//0
-			new Vector3(0, 1, 0),	//1
-			new Vector3(1, 1, 0),	//2
+			new Vector3(0, moveUp, 0),	//1
+			new Vector3(1, moveUp, 0),	//2
 			new Vector3(1, 0, 0),	//3
 
 			//top (counterclockwise)
-			new Vector3(1, 1, 1), 	//4
-			new Vector3(0, 1, 1),	//5
-			new Vector3(0, 1, 0),	//6
-			new Vector3(1, 1, 0),	//7
+			new Vector3(1, moveUp, 1), 	//4
+			new Vector3(0, moveUp, 1),	//5
+			new Vector3(0, moveUp, 0),	//6
+			new Vector3(1, moveUp, 0),	//7
 
 			//front (counterclockwise) 
 			new Vector3(0, 0, 1), 	//8
-			new Vector3(0, 1, 1),	//9
-			new Vector3(1, 1, 1),	//10
+			new Vector3(0, moveUp, 1),	//9
+			new Vector3(1, moveUp, 1),	//10
 			new Vector3(1, 0, 1),	//11
 
 			//right 
 			new Vector3(0, 0, 1), 	//12
-			new Vector3(0, 1, 1),	//13
-			new Vector3(0, 1, 0),	//14
+			new Vector3(0, moveUp, 1),	//13
+			new Vector3(0, moveUp, 0),	//14
 			new Vector3(0, 0, 0),	//15
 
 			//left
 			new Vector3(1, 0, 1), 	//16
-			new Vector3(1, 1, 1),	//17
-			new Vector3(1, 1, 0),	//18
+			new Vector3(1, moveUp, 1),	//17
+			new Vector3(1, moveUp, 0),	//18
 			new Vector3(1, 0, 0),	//19
 
 			//bottom
@@ -49,9 +62,8 @@ public class MeshCreation : MonoBehaviour {
 			new Vector3(0, 0, 1),	//21
 			new Vector3(0, 0, 0),	//22
 			new Vector3(1, 0, 0)	//23
-
 		};
-       
+			
 		mesh.triangles = new int[] {
 			//back
 			0, 1, 3,
@@ -78,17 +90,12 @@ public class MeshCreation : MonoBehaviour {
 			22,23, 20
 
 		};
-     
+
 		mesh.uv = new Vector2[] { 
 			new Vector2(0, 0), 
 			new Vector2(0, 1),
 			new Vector2(1, 1),
 			new Vector2(1,0)
 		};
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }
