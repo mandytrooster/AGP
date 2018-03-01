@@ -8,9 +8,10 @@ public class MeshCreation : MonoBehaviour {
 	private int moveLength;
 	private int moveWidth;
 
+	public Mesh mesh;
+
 	void Start () {
-		gameObject.AddComponent<MeshFilter>();
-		gameObject.AddComponent<MeshRenderer>();	
+	    mesh = GetComponent<MeshFilter>().mesh;
 		moveHeight = 1;
 		moveLength = 1;
 		moveWidth = 0;
@@ -38,8 +39,8 @@ public class MeshCreation : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.X)){
 			moveWidth -= 1;
 		}
+			
 
-		Mesh mesh = GetComponent<MeshFilter>().mesh;
 		mesh.Clear();
 
 		mesh.vertices = new Vector3[] { 
@@ -108,10 +109,43 @@ public class MeshCreation : MonoBehaviour {
 		};
 
 		mesh.uv = new Vector2[] { 
+ 
+			//back
 			new Vector2(0, 0), 
 			new Vector2(0, 1),
 			new Vector2(1, 1),
-			new Vector2(1,0)
-		};
+			new Vector2(1, 0),
+
+			//top
+			new Vector2(0, 0), 
+			new Vector2(0, 0), 
+			new Vector2(0, 0), 
+			new Vector2(0, 0), 
+
+			//front
+			new Vector2(0, 0), 
+			new Vector2(0, 0), 
+			new Vector2(0, 0), 
+			new Vector2(0, 0), 
+
+			//right
+			new Vector2(0, 0), 
+			new Vector2(0, 0), 
+			new Vector2(0, 0), 
+			new Vector2(0, 0), 
+
+			//left
+			new Vector2(0, 0), 
+			new Vector2(0, 0), 
+			new Vector2(0, 0), 
+			new Vector2(0, 0), 
+
+			//bottom
+			new Vector2(0, 0), 
+			new Vector2(0, 0), 
+			new Vector2(0, 0), 
+			new Vector2(0, 0), 
+
+		};  
 	}
 }
