@@ -118,33 +118,33 @@ public class MeshCreation : MonoBehaviour {
 
 			//top
 			new Vector2(0, 0), 
-			new Vector2(0, 0), 
-			new Vector2(0, 0), 
-			new Vector2(0, 0), 
+			new Vector2(0, 1),
+			new Vector2(1, 1),
+			new Vector2(1, 0),
 
 			//front
 			new Vector2(0, 0), 
-			new Vector2(0, 0), 
-			new Vector2(0, 0), 
-			new Vector2(0, 0), 
+			new Vector2(0, 1),
+			new Vector2(1, 1),
+			new Vector2(1, 0),
 
 			//right
 			new Vector2(0, 0), 
-			new Vector2(0, 0), 
-			new Vector2(0, 0), 
-			new Vector2(0, 0), 
+			new Vector2(0, 1),
+			new Vector2(1, 1),
+			new Vector2(1, 0),
 
 			//left
 			new Vector2(0, 0), 
-			new Vector2(0, 0), 
-			new Vector2(0, 0), 
-			new Vector2(0, 0), 
+			new Vector2(0, 1),
+			new Vector2(1, 1),
+			new Vector2(1, 0), 
 
 			//bottom
 			new Vector2(0, 0), 
-			new Vector2(0, 0), 
-			new Vector2(0, 0), 
-			new Vector2(0, 0), 
+			new Vector2(0, 1),
+			new Vector2(1, 1),
+			new Vector2(1, 0),
 
 		};  
 	}
