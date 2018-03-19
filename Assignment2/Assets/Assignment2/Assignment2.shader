@@ -2,6 +2,10 @@
 {
 	Properties
 	{
+		//Set the color in the inspector
+		_Color("Color", Color) = (1,1,1,1)
+
+
 		//Set the diffuse reflection color in the inspector
 		_DiffuseColor ("Diffuse Color", Color) = (1.0, 1.0, 1.0, 1.0) 
 		 
@@ -14,6 +18,9 @@
 
 		//Set the light color in the inspector
 	    _LightColor ("Light Color", Color) = (1.0, 1.0, 1.0, 1.0)
+
+	    _Shininess ("Shininess", Float) = 90
+
 
 	}
 	SubShader
@@ -34,12 +41,15 @@
 			{
 				float4 vertex : POSITION;
 				float3 normal : NORMAL;
+				float2 uv : TEXCOORD0;
 			};
 
 			struct v2f
 			{
 				float4 vertex : SV_POSITION;
 				float3 worldNormal : TEXCOORD1;
+
+				float2 uv : TEXCOORD0;
 			};
 
 		    float4 _DiffuseColor;
@@ -47,13 +57,16 @@
 		    float4 _SpecularColor;
 		    float4 _AmbietColor;
 		    float  _AmbientIntensity;
+		    float4 _Color;
+
+		    uniform	float _Shininess;
 			
 			v2f vert (appdata v)
 			{
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
-				o.worldNormal = normalize(mul(v.normal, (float3x3)unity_WorldToObject)); 
-			
+				o.worldNormal = normalize(mul(v.normal, (float3x3)unity_WorldToObject));
+				o.uv = v.uv;
 				return o;
 			}
 			
@@ -73,10 +86,14 @@
 
 			    //Blinn phong
 			    float3 halfVector = normalize(lightDir+cameraDir);
-			    float4 specularLight = pow( saturate( dot( i.worldNormal, halfVector)) * _SpecularColor, 5);
+
+			    //Specular
+			    float rv = max(0.0, dot(halfVector, cameraDir));
+			    float specularAmount = pow(rv, _Shininess);
+			    float4 specularLight = pow( saturate( dot( i.worldNormal, halfVector)) * _SpecularColor * specularAmount, 1);
 
 
-				return float4(ambientLight + diffuseLight + specularLight , 10);
+				return float4( _Color + ambientLight + diffuseLight + specularLight , 1);
 			}
 			ENDCG
 		}

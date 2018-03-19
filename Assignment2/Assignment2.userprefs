@@ -1,9 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/HvA/Shaders/UnlitColor.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Assignment2/Assignment2.shader">
     <Files>
+      <File FileName="Assets/Assignment2/Assignment2.shader" Line="1" Column="1" />
       <File FileName="Assets/HvA/Shaders/UnlitColor.shader" Line="1" Column="1" />
-      <File FileName="Assets/HvA/Shaders/Gouraud_withSpec.shader" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/HvA/Shaders/Gouraud_withSpec.shader" Line="11" Column="3" NotebookId="1" />
       <File FileName="Assets/HvA/Shaders/Phong_DiffuseOnly.shader" Line="1" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
