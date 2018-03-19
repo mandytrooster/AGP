@@ -6,7 +6,8 @@
 		_DiffuseColor ("Diffuse Color", Color) = (1.0, 1.0, 1.0, 1.0) 
 		 
 		//Set the ambient reflection color in the inspector
-	    _AmbietColor ("Ambient Color", color) = (1.0, 1.0, 1.0, 1.0)
+	    _AmbietColor ("Ambient Color", color) = (1.0, 1.0, 1.0, 1.0)        
+	    _AmbientIntensity ("Intensity", Range(0., 1.)) = 0.1
 
 		//Set the specular reflection color in the inspector 
 		_SpecularColor ("Specular Color", Color) = (1.0, 1.0, 1.0, 1.0)
@@ -45,6 +46,7 @@
 		    float4 _LightColor;
 		    float4 _SpecularColor;
 		    float4 _AmbietColor;
+		    float  _AmbientIntensity;
 			
 			v2f vert (appdata v)
 			{
@@ -61,7 +63,7 @@
                 float3 cameraDir = normalize(_WorldSpaceCameraPos.xyz - i.vertex.xyz);
 
                 //Ambient
-                float4 ambientLight = UNITY_LIGHTMODEL_AMBIENT * _AmbietColor;
+                float4 ambientLight = UNITY_LIGHTMODEL_AMBIENT * _AmbietColor * _AmbientIntensity;
  
 
 				//Diffuse
