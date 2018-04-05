@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Assignment3/Assignment3.shader">
+    <Files>
+      <File FileName="Assets/Assignment3/Assignment3.shader" Line="64" Column="4" />
+      <File FileName="Assets/Shaders/AlphaBlending.shader" Line="48" Column="17" NotebookId="1" />
+      <File FileName="Assets/Shaders/BlendingShader_RGB.shader" Line="60" Column="5" NotebookId="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

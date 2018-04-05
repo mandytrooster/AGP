@@ -1,26 +1,25 @@
-﻿Shader "Unlit/Assignment2"
+﻿Shader "Assignment2/Assignment2"
 {
 	Properties
 	{
-		//Set the color in the inspector
-		_Color("Color", Color) = (1,1,1,1)
 
+		_Color("Color", Color) = (1,1,1,1)
 
 		//Set the diffuse reflection color in the inspector
 		_DiffuseColor ("Diffuse Color", Color) = (1.0, 1.0, 1.0, 1.0) 
-		 
-		//Set the ambient reflection color in the inspector
-	    _AmbietColor ("Ambient Color", color) = (1.0, 1.0, 1.0, 1.0)        
-	    _AmbientIntensity ("Intensity", Range(0., 1.)) = 0.1
-
-		//Set the specular reflection color in the inspector 
-		_SpecularColor ("Specular Color", Color) = (1.0, 1.0, 1.0, 1.0)
 
 		//Set the light color in the inspector
 	    _LightColor ("Light Color", Color) = (1.0, 1.0, 1.0, 1.0)
+	   
+		//Set the ambient reflection color & intesity in the inspector
+	    _AmbietColor ("Ambient Color", color) = (1.0, 1.0, 1.0, 1.0)        
+	    _AmbientIntensity ("Ambient Intensity", Range(0., 1.)) = 0.1
 
-	    _Shininess ("Shininess", Float) = 90
+		//Set the specular reflection color in the inspector 
+		_SpecularColor ("Specular Color", Color) = (1.0, 1.0, 1.0, 1.0)
+	    _SpecularIntensity ("Specular Intensity", Range(0., 9.)) = 8.0
 
+	    _Shininess ("Shininess", Range(0., 1.)) = 1.0
 
 	}
 	SubShader
@@ -48,7 +47,6 @@
 			{
 				float4 vertex : SV_POSITION;
 				float3 worldNormal : TEXCOORD1;
-
 				float2 uv : TEXCOORD0;
 			};
 
@@ -58,8 +56,8 @@
 		    float4 _AmbietColor;
 		    float  _AmbientIntensity;
 		    float4 _Color;
-
 		    uniform	float _Shininess;
+		    uniform	float _SpecularIntensity;
 			
 			v2f vert (appdata v)
 			{
@@ -72,7 +70,7 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				float3 lightDir = normalize(_WorldSpaceLightPos0.xyz);//Pos0 gives the direction vector of the first directional light in the scene
+				float3 lightDir = normalize(_WorldSpaceLightPos0.xyz);
                 float3 cameraDir = normalize(_WorldSpaceCameraPos.xyz - i.vertex.xyz);
 
                 //Ambient
@@ -85,15 +83,14 @@
 
 
 			    //Blinn phong
-			    float3 halfVector = normalize(lightDir+cameraDir);
+			    float3 halfWayVector = normalize(lightDir+cameraDir);
 
 			    //Specular
-			    float rv = max(0.0, dot(halfVector, cameraDir));
+			    float rv = max(0.0, dot(halfWayVector, cameraDir));
 			    float specularAmount = pow(rv, _Shininess);
-			    float4 specularLight = pow( saturate( dot( i.worldNormal, halfVector)) * _SpecularColor * specularAmount, 1);
+			    float4 specularLight = pow( saturate( dot( i.worldNormal, halfWayVector)) * _SpecularColor * specularAmount, _SpecularIntensity);
 
-
-				return float4( _Color + ambientLight + diffuseLight + specularLight , 1);
+			   return float4( _Color + ambientLight + diffuseLight + specularLight , 1);
 			}
 			ENDCG
 		}
