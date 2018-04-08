@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Assignment3/Assignment3.unity
+- path: Assets/Final/Final.unity
   isLoaded: 1
   isActive: 1
