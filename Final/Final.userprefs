@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Final.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Shaders/Blur.shader">
     <Files>
-      <File FileName="Assets/Final.shader" Line="5" Column="40" />
+      <File FileName="Assets/Shaders/Bloom.shader" Line="21" Column="1" />
+      <File FileName="Assets/Shaders/Blur.shader" Line="8" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

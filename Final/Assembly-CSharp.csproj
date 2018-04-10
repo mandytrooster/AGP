@@ -51,8 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Final.cs" />
-     <None Include="Assets\Final.shader" />
+     <Compile Include="Assets\Blur.cs" />
+     <None Include="Assets\Shaders\Ground.shader" />
+     <None Include="Assets\Shaders\Bloom.shader" />
+     <None Include="Assets\Shaders\Blur.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
