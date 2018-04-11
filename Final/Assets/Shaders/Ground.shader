@@ -1,5 +1,4 @@
-﻿
-Shader "Unlit/Final"
+﻿Shader "Unlit/Final"
 {
 	Properties
 	{
