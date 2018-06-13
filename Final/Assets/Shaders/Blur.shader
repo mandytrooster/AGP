@@ -47,12 +47,15 @@
             {
  
                 fixed4 pixelRow = fixed4(0, 0, 0, 0);
- 
-  			   //unity_proj_coord returns the texture coordinate that will be blurred on the x-axis.
-  			   //addpixel returns a fixed4 vector. To create a blur effect, pixelcolumn returns the sum of all thefixed4 vectors of the pixels above and below times the weight.
+
                	#define ADDPIXEL(weight, kernelX, kernelY) tex2Dproj(_GrabTexture, UNITY_PROJ_COORD(float4(i.uv.x + _GrabTexture_TexelSize.x * kernelX * _Factor, i.uv.y + _GrabTexture_TexelSize.y * kernelY * _Factor, i.uv.z, i.uv.w))) * weight
 
-				//gaussian blur
+               	//unity_proj_coord returns the texture coordinate that will be blurred on the x-axis & yaxis. 
+               	//Addpixel returns a fixed4 vector. 
+               	//To create a blur effect, pixelRow returns the sum of all thefixed4 vectors of the pixels around it times the weight.
+               	//the weight is based on the standard deviation for the gaussian blur 
+
+				//gaussian blur 5x5
 				pixelRow += ADDPIXEL(0.0039, 2.0, 2.0);
                 pixelRow += ADDPIXEL(0.0156, 1.0, 2.0);
                 pixelRow += ADDPIXEL(0.0234, 0.0, 2.0);

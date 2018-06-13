@@ -1,10 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CubeSpawn.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Shaders/Blur.shader">
     <Files>
-      <File FileName="Assets/CubeSpawn.cs" Line="12" Column="58" />
-      <File FileName="Assets/Shaders/Blur.shader" Line="92" Column="2" />
-      <File FileName="Assets/CubeData.cs" Line="7" Column="10" />
+      <File FileName="Assets/Shaders/Blur.shader" Line="55" Column="46" />
+      <File FileName="Assets/Shaders/Ground.shader" Line="85" Column="61" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

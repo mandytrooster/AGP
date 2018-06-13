@@ -72,10 +72,13 @@
 				float dissolve = tex2D(_DissolveTex, i.uv).r;
 		
 				//normal mapping: unpack normal function
+				//the data in the normal map has to be stored in the range [0.0 - 1.0]
+				//needs to be rescaled to original [-1.0 - 1.0] range)
 				float3 localCoords = float3(2.0 * normalMapping.ag - float2(1.0,1.0),0.0);
 				localCoords.z = _NormalDepth;
 
-				//normal mapping: transpose matrix
+				//normal mapping: transpose matrix 
+				//converts normals from the normal map (in Tangent Space) to Model Space. 
 				float3x3 local2WorldTranspose = float3x3 (
 					i.tangentWorld,
 					i.binormalWorld,
@@ -83,7 +86,8 @@
 
 				);
 
-				//normal mapping: calculate normal direction
+				//normal mapping: calculate normal direction 
+				//To get the direction multiply the normal range that has been unpacked by the local coordinates of the sphere. 
 				float3 normalDirection = normalize(mul(localCoords, local2WorldTranspose));
 
 
