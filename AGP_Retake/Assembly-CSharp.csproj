@@ -53,7 +53,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\SpawnTrees.cs" />
      <Compile Include="Assets\Scripts\TreeMesh.cs" />
-     <Compile Include="Assets\Scripts\TreeSpawn.cs" />
+     <None Include="Assets\Shader\TreeShader.shader" />
+     <None Include="Assets\Shader\TreeTexture.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -87,14 +87,14 @@ public class SpawnTrees : MonoBehaviour {
 			// whenever the vertexlimit is reached create a new object to put it in
 			if (verticeCounter > vertexLimit)
 			{
-				//Now we can create a combined mesh of the meshes we have collected so far
+				//Now create a combined mesh of the meshes we have collected so far
 				CreateCombinedMesh (treeList, combinedTree, combinedTreeList);
 
 				//Reset the lists with mesh data
 				treeList.Clear();
 				verticeCounter = 0;
 
-				//Change how many combined meshes we have generated so far
+				//Change how many combined meshes generated so far
 				meshListCounter += 1;
 			}
 		}

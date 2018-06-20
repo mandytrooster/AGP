@@ -323,7 +323,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 9368eb958f7dc463687e4f94fc3a5842, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrain: {fileID: 287657802}
-  toPlaceAmount: 1000
+  toPlaceAmount: 200
   vertexLimit: 30000
   treePrefab: {fileID: 1436221869000672, guid: f78b56f04e4104ff8a47042dfecbf569, type: 2}
   combinedTree: {fileID: 817757268}

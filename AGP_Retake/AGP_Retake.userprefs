@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SpawnTrees.cs">
     <Files>
-      <File FileName="Assets/Scripts/SpawnTrees.cs" Line="84" Column="1" />
+      <File FileName="Assets/Scripts/SpawnTrees.cs" Line="1" Column="1" />
+      <File FileName="Assets/Shader/TreeTexture.shader" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
